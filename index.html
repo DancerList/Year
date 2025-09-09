@@ -206,12 +206,12 @@
   const themeToggle = document.getElementById('theme-toggle');
   const body = document.body;
 
-  function theme() {
-    if (body.classList.contains('dark-theme') && localStorage.getItem(theme) == 'ligth') {
+  function theme(them) {
+    if (them == 'dark') {
       body.classList.remove('dark-theme');
       body.classList.add('ligth-theme');
       themeToggle.textContent = "🌙";
-      localStorage.setItem('theme', 'light');
+      localStorage.setItem('theme', 'ligth')
     } else {
       body.classList.add('dark-theme');
       body.classList.remove('ligth-theme');
@@ -220,7 +220,7 @@
     }
   }
 
-  themeToggle.addEventListener('click', theme)
+  themeToggle.addEventListener('click', theme(localStorage.getItem('theme')))
   </script>
 </body>
 

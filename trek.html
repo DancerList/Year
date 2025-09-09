@@ -592,7 +592,10 @@
 
 <body>
   <section id="playlist-container" aria-label="Плейлист треков">
-    <h3>Треки</h3>
+    <div class="conteiner-h3-theme">
+  <h3>Треки</h3> 
+    <button class="theme-toggle" id="theme-toggle" aria-label="Переключить тему">☀️</button>
+  </div>
     <form action="search" method="get" class="searchL">  
       <input type="text" name="query" placeholder="Поиск песен...">   
     </form>  
@@ -1093,6 +1096,40 @@ audioPlayer.addEventListener('ended', () => {
         playTrack(0); 
     }
 });
+
+
+
+
+const themeToggle = document.getElementById('theme-toggle');
+  const body = document.body;
+
+  if (localStorage.getItem('theme') == 'dark') {
+      body.classList.add('dark-theme');
+      body.classList.remove('ligth-theme');
+      themeToggle.textContent = "🌙";
+  } else {
+    body.classList.remove('dark-theme');
+    body.classList.add('ligth-theme');
+    themeToggle.textContent = "☀️";
+  }
+
+  
+  function theme() {
+    them = localStorage.getItem('theme')
+    if (them == 'dark') {
+      body.classList.remove('dark-theme');
+      body.classList.add('ligth-theme');
+      themeToggle.textContent = "☀️";
+      localStorage.setItem('theme', 'ligth')
+    } else {
+      body.classList.add('dark-theme');
+      body.classList.remove('ligth-theme');
+      themeToggle.textContent = "🌙";
+      localStorage.setItem('theme', 'dark')
+    }
+  }
+
+  themeToggle.addEventListener('click', theme)
 
 
 

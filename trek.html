@@ -26,13 +26,19 @@
       color: #363E6B;
     }
 
-      .highlight {
+    .highlight {
       background-color: rgba(66, 153, 99, 0.7);
       border-left: 5px solid #2d4e2d;
       border-radius: 10px;
       transition: background-color 0.5s ease, transform 0.5s ease;
       padding: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    body.dark-theme .highlight {
+      background-color: rgba(100, 200, 130, 0.8);
+      border-left-color: #4a9d5a;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
     }
 
     .fade-out {

@@ -206,7 +206,8 @@
   const themeToggle = document.getElementById('theme-toggle');
   const body = document.body;
 
-  function theme(them) {
+  function theme() {
+    them = localStorage.getItem('theme')
     if (them == 'dark') {
       body.classList.remove('dark-theme');
       body.classList.add('ligth-theme');
@@ -220,7 +221,7 @@
     }
   }
 
-  themeToggle.addEventListener('click', theme(localStorage.getItem('theme')))
+  themeToggle.addEventListener('click', theme)
   </script>
 </body>
 

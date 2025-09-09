@@ -8,28 +8,39 @@
   <style>
     body {
       margin: 0;
-      background-color: #363E6B;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       display: flex;
-      justify-content:
+      justify-content: center;
       padding: 40px 20px;
       min-height: 100vh;
       color: #fff;
       user-select: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+
+    body.dark-theme {
+      background-color: #363E6B;
+      color: #fff;
+    }
+
+
+    body.light-theme {
+      background-color: #f5f5f5;
+      color: #363E6B;
     }
 
     .bottom-photo {
-  width: 100%;
-  height: auto;
-  margin-top: 30px;
-  border-radius: 16px;
-  object-fit: cover;
-  user-select: none;
-  display: block;
-}
-
+      width: 100%;
+      height: auto;
+      margin-top: 30px;
+      border-radius: 16px;
+      object-fit: cover;
+      user-select: none;
+      display: block;
+    }
 
     #playlist-container {
       background: #fff;
@@ -38,34 +49,39 @@
       box-shadow: 0 12px 30px rgba(54, 62, 107, 0.3);
       display: flex;
       flex-direction: column;
-      color: #fff; 
+      color: #363E6B; 
       user-select: none;
       box-sizing: border-box;
-      max-width: 550px; 
-  width: 85%;
-  margin: 0 auto; 
+      max-width: 550px;
+      width: 85%;
+      margin: 0 auto;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+
+    body.dark-theme #playlist-container {
+      background: #4a4f7a;
+      color: #fff;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
     }
 
     #playlist-container h3 {
-       margin: 0 0 24px 10px;
+      margin: 0 0 24px 10px;
       font-weight: 700;
       font-size: 2rem;
       letter-spacing: 0.05em;
-      color: #363E6B; 
-      text-shadow: none; 
-
-    
+      text-shadow: none;
     }
 
     .cards-container {
       display: flex;
       gap: 20px;
-      justify-content:
+      justify-content: space-between;
       user-select: none;
       flex-wrap: wrap;
+      align-items: center;
     }
 
- 
     .small-button {
       background: #fff;
       color: #363E6B;
@@ -84,6 +100,20 @@
       max-width: 200px;
     }
 
+
+    body.dark-theme .small-button {
+      background: #363E6B;
+      color: #fff;
+      border-color: #fff;
+      box-shadow: 0 5px 18px rgba(0, 0, 0, 0.25);
+    }
+
+    body.dark-theme .small-button:hover {
+      color: #ddd;
+      border-color: #ddd;
+      box-shadow: 0 9px 28px rgba(0, 0, 0, 0.5);
+    }
+
     .small-button:hover {
       box-shadow: 0 9px 28px rgba(54, 62, 107, 0.5);
       transform: translateY(-3px);
@@ -96,6 +126,20 @@
       box-shadow: 0 5px 18px rgba(54, 62, 107, 0.25);
     }
 
+    .theme-toggle {
+      background: none;
+      border: none;
+      font-size: 2rem;
+      cursor: pointer;
+      color: inherit;
+      padding: 10px;
+      transition: color 0.3s ease;
+    }
+
+    body.dark-theme .theme-toggle {
+      color: #fff;
+    }
+
     @media (max-width: 640px) {
       #playlist-container {
         padding: 25px 20px 30px;
@@ -104,7 +148,7 @@
       #playlist-container h3 {
         font-size: 1.6rem;
         margin-left: 0;
-        text-align:
+        text-align: center;
       }
 
       .cards-container {
@@ -117,13 +161,23 @@
         max-width: 100%;
         flex-grow: 0;
       }
+
+      .theme-toggle {
+        font-size: 1.5rem;
+        align-self: center;
+        margin-bottom: 10px;
+      }
     }
+
   </style>
 </head>
 
 <body>
   <section id="playlist-container" aria-label="Главное меню МузЧат">
-  <h3>МузЧат</h3>
+  <div>
+  <h3>МузЧат</h3> 
+    <button class="theme-toggle" id="theme-toggle" aria-label="Переключить тему">☀️</button>
+  </div>
   <div class="cards-container">
     <button class="small-button" onclick="location.href='cash.html'" aria-label="Перейти к музыке">Музыка</button>
     <button class="small-button" onclick="location.href='music.html'" aria-label="Перейти к оплате">Заказы</button>

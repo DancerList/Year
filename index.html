@@ -210,12 +210,12 @@
     if (them == 'dark') {
       body.classList.remove('dark-theme');
       body.classList.add('ligth-theme');
-      themeToggle.textContent = "🌙";
+      themeToggle.textContent = "☀";
       localStorage.setItem('theme', 'ligth')
     } else {
       body.classList.add('dark-theme');
       body.classList.remove('ligth-theme');
-      themeToggle.textContent = "☀️";
+      themeToggle.textContent = "🌙";
       localStorage.setItem('theme', 'dark')
     }
   }

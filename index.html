@@ -207,14 +207,16 @@
   const body = document.body;
 
   function theme() {
-    if (body.classList.contains('dark-theme')) {
+    if (body.classList.contains('dark-theme') && localStorage.getItem(theme) == 'ligth') {
       body.classList.remove('dark-theme');
       body.classList.add('ligth-theme');
       themeToggle.textContent = "🌙";
+      localStorage.setItem('theme', 'light');
     } else {
       body.classList.add('dark-theme');
       body.classList.remove('ligth-theme');
       themeToggle.textContent = "☀️";
+      localStorage.setItem('theme', 'dark')
     }
   }
 

@@ -202,6 +202,24 @@
   <img src="photo_2024-12-20_14-43-13.jpg" alt="Фотография" class="bottom-photo" />
 </section>
 
+<script>
+  const themeToggle = document.getElementById('theme-toggle');
+  const body = document.body;
+
+  function theme() {
+    if (body.classList.contains('dark-theme')) {
+      body.classList.remove('dark-theme');
+      body.classList.add('ligth-theme');
+      themeToggle.textConten = "🌙";
+    } else {
+      body.classList.add('dark-theme');
+      body.classList.remove('ligth-theme');
+      themeToggle.textConten = "☀️";
+    }
+  }
+
+  themeToggle.addEventListener('click', theme)
+  </script>
 </body>
 
 </html>

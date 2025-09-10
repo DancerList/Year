@@ -385,9 +385,12 @@
 
 <body>
   <section id="playlist-container" aria-label="Плейлист треков">
-    <h3>Альбомы</h3>
+    <div class="conteiner-h3-theme">
+      <h3>Альбомы</h3> 
+      <button class="theme-toggle" id="theme-toggle" aria-label="Переключить тему">☀️</button>
+    </div>
     <form action="search" method="get" class="searchL">  
-    <input type="text" name="query" placeholder="Поиск песен...">   
+      <input type="text" name="query" placeholder="Поиск песен...">   
     </form>  
     <button class="small-button" onclick="location.href='cash.html'" aria-label="Перейти в меню">Меню</button>
     <div id="buttons-container" tabindex="0" aria-live="polite" aria-relevant="additions"></div>

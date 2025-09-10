@@ -8,7 +8,7 @@
   <title>Избранные треки</title>
 
   <style>
-    body {
+   body {
       margin: 0;
       background-color: #363E6B;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -99,6 +99,11 @@
       align-items: center;
     }
 
+    body.dark-theme .num-btn09 {
+      background: #4a4f7a;
+      color: #e0e4f0;
+    }
+
     .num-btn09:hover {
       box-shadow: 0 8px 22px rgba(54, 62, 107, 0.9);
       transform: scale(1.1);
@@ -143,6 +148,11 @@
       align-items: center;
     }
 
+    body.dark-theme .num-btn {
+      background: #4a4f7a;
+      color: #e0e4f0;
+    }
+
     #loading-indicator {
       display: none;
       position: fixed;
@@ -158,10 +168,19 @@
       z-index: 1000;
     }
 
+    body.dark-theme #loading-indicator {
+      background: rgba(74, 79, 122, 0.9);
+      color: #e0e4f0;
+    }
+
     #progress-bar {
       width: 100%;
       margin-top: 10px;
       color: black;
+    }
+
+    body.dark-theme #progress-bar {
+      color: #e0e4f0;
     }
 
     .num-btn:hover {
@@ -181,6 +200,10 @@
       letter-spacing: 0.05em;
       color: #363E6B;
       text-shadow: none;
+    }
+
+    body.dark-theme #playlist-container h3 {
+      color: #e0e4f0;
     }
 
     .tracks-container {
@@ -218,11 +241,22 @@
       user-select: none;
     }
 
+    body.dark-theme .small-button {
+      background: #4a4f7a;
+      color: #e0e4f0;
+      border-color: #4a4f7a;
+    }
+
     .small-button:hover {
       box-shadow: 0 9px 28px rgba(54, 62, 107, 0.5);
       transform: translateY(-3px);
       color: #2a3150;
       border-color: #2a3150;
+    }
+
+    body.dark-theme .small-button:hover {
+      color: #c0c4d0;
+      border-color: #5a5f8a;
     }
 
     .small-button:active {
@@ -252,11 +286,22 @@
       user-select: none;
     }
 
+    body.dark-theme .small-button80 {
+      background: #4a4f7a;
+      color: #e0e4f0;
+      border-color: #4a4f7a;
+    }
+
     .small-button80:hover {
       box-shadow: 0 9px 28px rgba(54, 62, 107, 0.5);
       transform: translateY(-3px);
       color: #2a3150;
       border-color: #2a3150;
+    }
+
+    body.dark-theme .small-button80:hover {
+      color: #c0c4d0;
+      border-color: #5a5f8a;
     }
 
     .small-button80:active {
@@ -280,11 +325,22 @@
       user-select: none;
     }
 
+    body.dark-theme .small-button12 {
+      background: #4a4f7a;
+      color: #e0e4f0;
+      border-color: #4a4f7a;
+    }
+
     .small-button12:hover {
       box-shadow: 0 9px 28px rgba(54, 62, 107, 0.5);
       transform: translateY(-3px);
       color: #2a3150;
       border-color: #2a3150;
+    }
+
+    body.dark-theme .small-button12:hover {
+      color: #c0c4d0;
+      border-color: #5a5f8a;
     }
 
     .small-button12:active {
@@ -315,6 +371,10 @@
     #favorites-container::-webkit-scrollbar-thumb {
       background: #363E6B;
       border-radius: 8px;
+    }
+
+    body.dark-theme #favorites-container::-webkit-scrollbar-thumb {
+      background: #4a4f7a;
     }
 
     #favorites-container > div {
@@ -372,6 +432,10 @@
       border-radius: 8px;
     }
 
+    body.dark-theme #albom-container::-webkit-scrollbar-thumb {
+      background: #4a4f7a;
+    }
+
     #albom-container > div {
       display: flex;
       flex-direction: column;
@@ -398,6 +462,11 @@
       text-overflow: ellipsis;
     }
 
+    body.dark-theme .track-button {
+      background: #4a4f7a;
+      color: #e0e4f0;
+    }
+
     .restore-button0909 {
       flex-shrink: 0;
       background: #7db14d;
@@ -413,6 +482,10 @@
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+
+    body.dark-theme .restore-button0909 {
+      background: #5a8a3a;
     }
 
     .restore-button {
@@ -432,6 +505,10 @@
       align-items: center;
     }
 
+    body.dark-theme .restore-button {
+      background: #5a8a3a;
+    }
+
     .delete-button12 {
       flex-shrink: 0;
       background: #c25858;
@@ -444,6 +521,10 @@
       font-weight: 700;
       right: 10px;
       bottom: 10px;
+    }
+
+    body.dark-theme .delete-button12 {
+      background: #a04444;
     }
 
     .delete-button12:hover {
@@ -472,6 +553,11 @@
       color: #666;
     }
 
+    body.dark-theme .track-button:disabled {
+      background: #666;
+      color: #ccc;
+    }
+
     .delete-button {
       flex-shrink: 0;
       background: #c25858;
@@ -487,6 +573,10 @@
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+
+    body.dark-theme .delete-button {
+      background: #a04444;
     }
 
     .delete-button:hover {
@@ -512,6 +602,10 @@
       justify-content: center;
     }
 
+    body.dark-theme .delete-button217 {
+      background: #a04444;
+    }
+
     .delete-button217:hover {
       transform: scale(1.1);
     }
@@ -530,6 +624,11 @@
       user-select: none;
     }
 
+    body.dark-theme #audio-player {
+      background-color: #4a4f7a;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+    }
+
     .album-title {
       position: relative;
       background-color: #6570af;
@@ -544,6 +643,11 @@
       font-size: 1.1rem;
       color: white;
       transition: background-color 0.3s ease;
+    }
+
+    body.dark-theme .album-title {
+      background-color: #4a4f7a;
+      color: #e0e4f0;
     }
 
     .num-btn-date {
@@ -566,6 +670,11 @@
       align-items: center;
     }
 
+    body.dark-theme .num-btn-date {
+      background: #4a4f7a;
+      color: #e0e4f0;
+    }
+
     .num-btn-date:hover {
       box-shadow: 0 8px 22px rgba(54, 62, 107, 0.9);
       transform: scale(1.1);
@@ -578,6 +687,10 @@
 
     .album-title:hover {
       background-color: #4a5d9e;
+    }
+
+    body.dark-theme .album-title:hover {
+      background-color: #5a5f8a;
     }
 
     .album-title .title-text {
@@ -625,6 +738,11 @@
       z-index: 2;
     }
 
+    body.dark-theme .album-title .delete-button {
+      background: #2c2f4a;
+      color: #e0e4f0;
+    }
+
     .album-title .delete-button:hover {
       transform: translateY(-50%) scale(1.1);
     }
@@ -654,13 +772,28 @@
       box-sizing: border-box;
     }
 
+    body.dark-theme .searchL input[type="text"] {
+      background-color: #4a4f7a;
+      color: #e0e4f0;
+      border-color: #4a4f7a;
+    }
+
     .searchL input[type="text"]::placeholder {
       color: #999;
+    }
+
+    body.dark-theme .searchL input[type="text"]::placeholder {
+      color: #bbb;
     }
 
     .searchL input[type="text"]:focus {
       border-color: #4a5d9e;
       box-shadow: 0 0 8px rgba(74, 93, 158, 0.6);
+    }
+
+    body.dark-theme .searchL input[type="text"]:focus {
+      border-color: #5a5f8a;
+      box-shadow: 0 0 8px rgba(90, 95, 138, 0.6);
     }
 
     .header-container {

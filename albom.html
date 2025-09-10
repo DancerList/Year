@@ -804,5 +804,37 @@ audioPlayer.addEventListener('ended', () => {
 });
 
 
+const themeToggle = document.getElementById('theme-toggle');
+  const body = document.body;
+
+  if (localStorage.getItem('theme') == 'dark') {
+      body.classList.add('dark-theme');
+      body.classList.remove('ligth-theme');
+      themeToggle.textContent = "🌙";
+  } else {
+    body.classList.remove('dark-theme');
+    body.classList.add('ligth-theme');
+    themeToggle.textContent = "☀️";
+  }
+
+  
+  function theme() {
+    them = localStorage.getItem('theme')
+    if (them == 'dark') {
+      body.classList.remove('dark-theme');
+      body.classList.add('ligth-theme');
+      themeToggle.textContent = "☀️";
+      localStorage.setItem('theme', 'ligth')
+    } else {
+      body.classList.add('dark-theme');
+      body.classList.remove('ligth-theme');
+      themeToggle.textContent = "🌙";
+      localStorage.setItem('theme', 'dark')
+    }
+  }
+
+  themeToggle.addEventListener('click', theme)
+
+
   </script>
 </body>

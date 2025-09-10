@@ -20,6 +20,34 @@
       min-height: 100vh;
       color: #fff;
       user-select: none;
+      transition: background-color 0.5s ease, color 0.5s ease;
+      background: linear-gradient(135deg, #191d31 0%, #1e1f31 100%);
+    }
+
+    body.dark-theme {
+      background-color: #505050;
+      color: #363E6B;
+    }
+
+    .highlight {
+      background-color: rgba(66, 153, 99, 0.7);
+      border-left: 5px solid #2d4e2d;
+      border-radius: 10px;
+      transition: background-color 0.5s ease, transform 0.5s ease;
+      padding: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    body.dark-theme .highlight {
+      background-color: rgba(100, 200, 130, 0.8);
+      border-left-color: #4a9d5a;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .fade-out {
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 0.5s ease, transform 0.5s ease;
     }
 
     .num-btn09 {
@@ -63,6 +91,66 @@
       color: #363E6B;
       user-select: none;
       box-sizing: border-box;
+      transition: background-color 0.5s ease, color 0.5s ease, transform 0.3s ease;
+    }
+
+    #playlist-container:hover {
+      transform: translateY(-5px);
+    }
+
+    body.dark-theme #playlist-container {
+      background: linear-gradient(135deg, #2c2f4a 0%, #3a3f5e 100%);
+      color: #e0e4f0;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+      border: 1px solid #4a4f7a;
+    }
+
+    .conteiner-h3-theme {
+      display: flex;
+      gap: 20px;
+      justify-content: space-between;
+      user-select: none;
+      flex-wrap: wrap;
+      align-items: center;
+      transition: all 0.5s ease;
+      margin-bottom: 24px;
+    }
+
+    #playlist-container h3 {
+      margin: 0 0 24px 10px;
+      font-weight: 700;
+      font-size: 2rem;
+      letter-spacing: 0.05em;
+      color: #363E6B;
+      text-shadow: none;
+      transition: color 0.5s ease, text-shadow 0.5s ease;
+    }
+
+    body.dark-theme #playlist-container h3 {
+      color: #e0e4f0;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .theme-toggle {
+      background: none;
+      border: none;
+      font-size: 1.6rem;
+      cursor: pointer;
+      color: inherit;
+      padding: 10px;
+      transition: color 0.5s ease, transform 0.3s ease;
+      border-radius: 50%;
+      user-select: none;
+    }
+
+    .theme-toggle:hover {
+      transform: rotate(15deg) scale(1.1);
+    }
+
+    body.dark-theme .theme-toggle {
+      color: #f0f4ff;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
     }
 
     .num-btn {
@@ -83,6 +171,19 @@
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+
+    body.dark-theme .num-btn {
+      background: linear-gradient(45deg, #4a4f7a 0%, #5a5f8a 100%);
+      box-shadow: 0 5px 14px rgba(74, 79, 122, 0.8);
+    }
+
+    body.dark-theme .num-btn:hover {
+      box-shadow: 0 8px 22px rgba(74, 79, 122, 0.9);
+    }
+
+    body.dark-theme .num-btn:active {
+      box-shadow: 0 5px 14px rgba(74, 79, 122, 0.7);
     }
 
     #loading-indicator {
@@ -116,15 +217,6 @@
       box-shadow: 0 5px 14px rgba(54, 62, 107, 0.7);
     }
 
-    #playlist-container h3 {
-      margin: 0 0 24px 10px;
-      font-weight: 700;
-      font-size: 2rem;
-      letter-spacing: 0.05em;
-      color: #363E6B;
-      text-shadow: none;
-    }
-
     .tracks-container {
       display: flex;
       flex-direction: column;
@@ -147,7 +239,7 @@
     .small-button {
       align-self: flex-start;
       margin-bottom: 20px;
-      background: #fff;
+      background: linear-gradient(45deg, #fff 0%, #f0f0f0 100%);
       color: #363E6B;
       border: 2.5px solid #363E6B;
       border-radius: 16px;
@@ -156,13 +248,48 @@
       font-size: 1rem;
       cursor: pointer;
       box-shadow: 0 5px 18px rgba(54, 62, 107, 0.25);
-      transition: box-shadow 0.3s ease, transform 0.2s ease, color 0.3s ease, border-color 0.3s ease;
+      transition: all 0.4s ease;
       user-select: none;
+      position: relative;
+      overflow: hidden;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .small-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.5s ease;
+      border-radius: 16px;
+      z-index: 1;
+    }
+
+    .small-button:hover::before {
+      left: 100%;
+    }
+
+    body.dark-theme .small-button {
+      background: linear-gradient(45deg, #4a4f7a 0%, #5a5f8a 100%);
+      color: #e0e4f0;
+      border-color: #7a80b0;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    body.dark-theme .small-button:hover {
+      color: #fff;
+      border-color: #9aa0c8;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+      transform: translateY(-3px) scale(1.05);
     }
 
     .small-button:hover {
       box-shadow: 0 9px 28px rgba(54, 62, 107, 0.5);
-      transform: translateY(-3px);
+      transform: translateY(-3px) scale(1.05);
       color: #2a3150;
       border-color: #2a3150;
     }
@@ -194,6 +321,20 @@
       user-select: none;
     }
 
+    body.dark-theme .small-button80 {
+      background: linear-gradient(45deg, #4a4f7a 0%, #5a5f8a 100%);
+      color: #e0e4f0;
+      border-color: #7a80b0;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    body.dark-theme .small-button80:hover {
+      color: #fff;
+      border-color: #9aa0c8;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+      transform: translateY(-3px) scale(1.05);
+    }
+
     .small-button80:hover {
       box-shadow: 0 9px 28px rgba(54, 62, 107, 0.5);
       transform: translateY(-3px);
@@ -222,8 +363,23 @@
       user-select: none;
     }
 
+    body.dark-theme .small-button12 {
+      background: linear-gradient(45deg, #4a4f7a 0%, #5a5f8a 100%);
+      color: #e0e4f0;
+      border-color: #7a80b0;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    body.dark-theme .small-button12:hover {
+      color: #fff;
+      border-color: #9aa0c8;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+      transform: translateY(-3px) scale(1.05);
+    }
+
     .small-button12:hover {
-      box-shadow: 0 9px 28px rgba(54, 62, 107, 0.5);
+      box-shadow: 0 9px 
+      28px rgba(54, 62, 107, 0.5);
       transform: translateY(-3px);
       color: #2a3150;
       border-color: #2a3150;
@@ -259,6 +415,10 @@
       border-radius: 8px;
     }
 
+    body.dark-theme #favorites-container::-webkit-scrollbar-thumb {
+      background: #7a80b0;
+    }
+
     #favorites-container > div {
       display: flex;
       align-items: center;
@@ -281,30 +441,6 @@
       width: 14px;
     }
 
-    .highlight {
-      background-color: rgba(66, 153, 99, 0.7);
-      border-left: 5px solid #2d4e2d;
-      border-radius: 10px;
-      transition: background-color 0.5s ease, transform 0.5s ease;
-      padding: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    .track-button.highlight {
-      background-color: rgba(66, 153, 99, 0.7) !important;
-      border-left: 5px solid #2d4e2d;
-      border-radius: 10px;
-      transition: background-color 0.5s ease, transform 0.5s ease;
-      padding: 10px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    .fade-out {
-      opacity: 0;
-      transform: scale(0.95);
-      transition: opacity 0.5s ease, transform 0.5s ease;
-    }
-
     #albom-container::-webkit-scrollbar-track {
       background: transparent;
     }
@@ -312,6 +448,10 @@
     #albom-container::-webkit-scrollbar-thumb {
       background: #363E6B;
       border-radius: 8px;
+    }
+
+    body.dark-theme #albom-container::-webkit-scrollbar-thumb {
+      background: #7a80b0;
     }
 
     #albom-container > div {
@@ -340,317 +480,238 @@
       text-overflow: ellipsis;
     }
 
-    .restore-button0909 {
-      flex-shrink: 0;
-      background: #7db14d;
-      border-radius: 50%;
-      width: 36px;
-      height: 36px;
-      font-size: 1.3rem;
-      line-height: 1;
-      color: rgb(255, 255, 255);
-      font-weight: 700;
-      right: 20px;
-      bottom: 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    body.dark-theme .track-button {
+      background: linear-gradient(45deg, #4a4f7a 0%, #5a5f8a 100%);
+      box-shadow: 0 5px 18px rgba(74, 79, 122, 0.8);
     }
 
-    .restore-button {
-      flex-shrink: 0;
-      background: #7db14d;
-      border-radius: 50%;
-      width: 36px;
-      height: 36px;
-      font-size: 1.3rem;
-      line-height: 1;
-      color: rgb(255, 255, 255);
-      font-weight: 700;
-      right: 30px;
-      bottom: 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    body.dark-theme .track-button:hover:not(:disabled) {
+      box-shadow: 0 9px 28px rgba(74, 79, 122, 1);
     }
 
-    .delete-button12 {
-      flex-shrink: 0;
-      background: #c25858;
-      border-radius: 50%;
-      width: 30px;
-      height: 30px;
-      font-size: 1.2rem;
-      line-height: 1;
-      color: rgb(255, 255, 255);
-      font-weight: 700;
-      right: 10px;
-      bottom: 10px;
+    body.dark-theme .track-button:active:not(:disabled) {
+      box-shadow: 0 5px 18px rgba(74, 79, 122, 0.8);
     }
 
-    .delete-button12:hover {
-      transform: scale(1.1);
-    }
-
-    .delete-button12:active {
-      transform: scale(0.95);
-    }
-
-    .track-button:hover:not(:disabled) {
-      box-shadow: 0 9px 28px rgba(54, 62, 107, 1);
-      transform: translateY(-3px);
-    }
-
-    .track-button:active:not(:disabled) {
-      transform: translateY(0);
-      box-shadow: 0 5px 18px rgba(54, 62, 107, 0.7);
-    }
-
-    .track-button:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-      box-shadow: none;
-      background: #ccc;
-      color: #666;
-    }
-
-    .delete-button {
-      flex-shrink: 0;
-      background: #c25858;
-      border-radius: 50%;
-      width: 36px;
-      height: 36px;
-      font-size: 1.3rem;
-      line-height: 1;
-      color: rgb(255, 255, 255);
-      font-weight: 700;
-      right: 20px;
-      bottom: 10px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .delete-button:hover {
-      transform: scale(1.1);
-    }
-
-    .delete-button:active {
-      transform: scale(0.95);
-    }
-
-    .delete-button217 {
-      flex-shrink: 0;
-      background: #c25858;
-      border-radius: 51%;
-      width: 36px;
-      height: 36px;
-      font-size: 1.3rem;
-      line-height: 1;
-      color: rgb(255, 255, 255);
-      font-weight: 700;
-      right: 20px;
-      bottom: 5px;
-      justify-content: center;
-    }
-
-    .delete-button217:hover {
-      transform: scale(1.1);
-    }
-
-    .delete-button217:active {
-      transform: scale(0.95);
-    }
-
-    #audio-player {
-      width: 100%;
-      border-radius: 14px;
-      box-shadow: 0 6px 20px rgba(54, 62, 107, 0.3);
-      outline: none;
-      background-color: #fff;
-      height: 46px;
-      user-select: none;
-    }
-
-    .album-title {
-      position: relative;
-      background-color: #6570af;
-      padding: 17px 55px 17px 22px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
+    .track-button.highlight {
+      background-color: rgba(66, 153, 99, 0.7) !important;
+      border-left: 5px solid #2d4e2d;
       border-radius: 10px;
-      margin-bottom: 10px;
-      user-select: none;
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: white;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.5s ease, transform 0.5s ease;
+      padding: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 
-    .num-btn-date {
-      flex-shrink: 0;
-      background: #363E6B;
-      border: none;
-      border-radius: 25%;
-      width: 58px;
-      height: 58px;
-      font-size: 0.80rem;
-      line-height: 1;
-      color: white;
-      font-weight: 1500;
-      cursor: pointer;
-      box-shadow: 0 5px 14px rgba(54, 62, 107, 0.7);
-      transition: box-shadow 0.3s ease, transform 0.2s ease;
-      user-select: none;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+    body.dark-theme .track-button.highlight {
+      background-color: rgba(100, 200, 130, 
+                             }
+    .track-button:hover:not(:disabled) {
+  box-shadow: 0 9px 28px rgba(54, 62, 107, 1);
+  transform: scale(1.05);
+}
 
-    .num-btn-date:hover {
-      box-shadow: 0 8px 22px rgba(54, 62, 107, 0.9);
-      transform: scale(1.1);
-    }
+.track-button:active:not(:disabled) {
+  transform: scale(0.95);
+  box-shadow: 0 5px 18px rgba(54, 62, 107, 0.7);
+}
 
-    .num-btn-date:active {
-      transform: scale(0.95);
-      box-shadow: 0 5px 14px rgba(54, 62, 107, 0.7);
-    }
+.album-button {
+  background: #363E6B;
+  border: none;
+  border-radius: 16px;
+  padding: 8px 18px;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+  box-shadow: 0 5px 18px rgba(54, 62, 107, 0.7);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+  user-select: none;
+  width: 100%;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 
-    .album-title:hover {
-      background-color: #4a5d9e;
-    }
+body.dark-theme .album-button {
+  background: linear-gradient(45deg, #4a4f7a 0%, #5a5f8a 100%);
+  box-shadow: 0 5px 18px rgba(74, 79, 122, 0.8);
+}
 
-    .album-title .title-text {
-      display: flex;
-      align-items: center;
-      flex-grow: 1;
-      user-select: none;
-    }
+body.dark-theme .album-button:hover:not(:disabled) {
+  box-shadow: 0 9px 28px rgba(74, 79, 122, 1);
+}
 
-    .album-title .title-text::after {
-      content: '▼';
-      font-size: 0.8em;
-      margin-left: 8px;
-      color: white;
-      transition: transform 0.3s ease;
-      flex-shrink: 0;
-      display: inline-block;
-      transform-origin: center;
-      transform: rotate(0deg);
-    }
+body.dark-theme .album-button:active:not(:disabled) {
+  box-shadow: 0 5px 18px rgba(74, 79, 122, 0.8);
+}
 
-    .album-title[aria-expanded="true"] .title-text::after {
-      transform: rotate(180deg);
-    }
+.album-button:hover:not(:disabled) {
+  box-shadow: 0 9px 28px rgba(54, 62, 107, 1);
+  transform: scale(1.05);
+}
 
-    .album-title .delete-button {
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      background: #ffffff;
-      border: none;
-      color: rgb(43, 43, 43);
-      font-weight: 700;
-      font-size: 1.3rem;
-      cursor: pointer;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      transition: box-shadow 0.3s ease, transform 0.2s ease;
-      user-select: none;
-      z-index: 2;
-    }
+.album-button:active:not(:disabled) {
+  transform: scale(0.95);
+  box-shadow: 0 5px 18px rgba(54, 62, 107, 0.7);
+}
 
-    .album-title .delete-button:hover {
-      transform: translateY(-50%) scale(1.1);
-    }
+.delete-button, .delete-button12, .delete-button217, .restore-button, .restore-button0909 {
+  background: #ff6b6b;
+  border: none;
+  border-radius: 8px;
+  padding: 5px 10px;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(255, 107, 107, 0.5);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+  user-select: none;
+}
 
-    .album-title .delete-button:active {
-      transform: translateY(-50%) scale(0.95);
-    }
+body.dark-theme .delete-button, body.dark-theme .delete-button12, body.dark-theme .delete-button217, body.dark-theme .restore-button, body.dark-theme .restore-button0909 {
+  background: linear-gradient(45deg, #ff6b6b 0%, #ff8a8a 100%);
+  box-shadow: 0 3px 10px rgba(255, 138, 138, 0.6);
+}
 
-    .searchL {
-      margin-bottom: 20px;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-    }
+body.dark-theme .delete-button:hover, body.dark-theme .delete-button12:hover, body.dark-theme .delete-button217:hover, body.dark-theme .restore-button:hover, body.dark-theme .restore-button0909:hover {
+  box-shadow: 0 6px 18px rgba(255, 138, 138, 0.8);
+}
 
-    .searchL input[type="text"] {
-      width: 100%;
-      max-width: 600px;
-      padding: 12px 16px;
-      font-size: 1rem;
-      border: 2.5px solid #6570af;
-      border-radius: 16px;
-      outline: none;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: #363E6B;
-      box-sizing: border-box;
-    }
+.delete-button:hover, .delete-button12:hover, .delete-button217:hover, .restore-button:hover, .restore-button0909:hover {
+  box-shadow: 0 6px 18px rgba(255, 107, 107, 0.7);
+  transform: scale(1.05);
+}
 
-    .searchL input[type="text"]::placeholder {
-      color: #999;
-    }
+.delete-button:active, .delete-button12:active, .delete-button217:active, .restore-button:active, .restore-button0909:active {
+  transform: scale(0.95);
+  box-shadow: 0 3px 10px rgba(255, 107, 107, 0.5);
+}
 
-    .searchL input[type="text"]:focus {
-      border-color: #4a5d9e;
-      box-shadow: 0 0 8px rgba(74, 93, 158, 0.6);
-    }
+.restore-button, .restore-button0909 {
+  background: #4ecdc4;
+  box-shadow: 0 3px 10px rgba(78, 205, 196, 0.5);
+}
 
-    .header-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 24px;
-    }
+body.dark-theme .restore-button, body.dark-theme .restore-button0909 {
+  background: linear-gradient(45deg, #4ecdc4 0%, #6dd5cc 100%);
+  box-shadow: 0 3px 10px rgba(109, 213, 204, 0.6);
+}
 
-    @media (max-width: 640px) {
-      #playlist-container {
-        padding: 25px 20px 30px;
-      }
+body.dark-theme .restore-button:hover, body.dark-theme .restore-button0909:hover {
+  box-shadow: 0 6px 18px rgba(109, 213, 204, 0.8);
+}
 
-      #playlist-container h3 {
-        font-size: 1.6rem;
-      }
+.restore-button:hover, .restore-button0909:hover {
+  box-shadow: 0 6px 18px rgba(78, 205, 196, 0.7);
+}
 
-      #favorites-container {
-        max-height: 300px;
-      }
+.restore-button:active, .restore-button0909:active {
+  box-shadow: 0 3px 10px rgba(78, 205, 196, 0.5);
+}
 
-      .track-button {
-        font-size: 14px;
-        padding: 4px 8px;
-        width: 250px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        height: 55px;
-      }
+/* Адаптивность */
+@media (max-width: 768px) {
+  body {
+    padding: 20px 10px;
+  }
 
-      .delete-button {
-        width: 32px;
-        height: 32px;
-        font-size: 1.3rem;
-      }
+  #playlist-container {
+    padding: 20px 20px 30px;
+    max-width: 100%;
+  }
 
-      #audio-player {
-        height: 40px;
-      }
+  #playlist-container h3 {
+    font-size: 1.5rem;
+  }
 
-      .header-container {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-      }
-    }
+  .conteiner-h3-theme {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .theme-toggle {
+    align-self: flex-end;
+  }
+
+  .track-button, .album-button {
+    width: 100%;
+    max-width: none;
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+
+  .small-button, .small-button12 {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+  }
+
+  .small-button80 {
+    min-width: 60px;
+    padding: 4px 6px;
+    font-size: 0.8rem;
+  }
+
+  #favorites-container, #albom-container {
+    max-height: none;
+    overflow-y: visible;
+    margin-top: 20px;
+  }
+
+  #favorites-container {
+    margin-top: 40px;
+  }
+
+  .num-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+
+  .num-btn09 {
+    width: 26px;
+    height: 26px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #playlist-container h3 {
+    font-size: 1.3rem;
+  }
+
+  .track-button, .album-button {
+    font-size: 13px;
+    padding: 8px 14px;
+  }
+
+  .small-button, .small-button12 {
+    padding: 6px 16px;
+    font-size: 0.8rem;
+  }
+
+  .small-button80 {
+    min-width: 50px;
+    padding: 3px 5px;
+    font-size: 0.7rem;
+  }
+
+  .num-btn {
+    width: 28px;
+    height: 28px;
+    font-size: 0.9rem;
+  }
+
+  .num-btn09 {
+    width: 24px;
+    height: 24px;
+    font-size: 0.8rem;
+  }
+}
+
   </style>
 </head>
 
